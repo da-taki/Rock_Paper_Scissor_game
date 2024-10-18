@@ -18,7 +18,8 @@ while game_start == 1:
     #Exception Handling
     try:
         game_start = int(input("Do you want to play rock paper scissors(1=yes,0=no)?: "))
-    except ValueError:
+    except ValueError as e:
+        print(e)
         print("Enter a number dum dum!")
         continue
     #Checking if they wanna play or not
@@ -30,7 +31,7 @@ while game_start == 1:
     #Checking the player choice
     player_choice = input("Choose now!: ")
     #Going through every possible outcome
-    if player_choice.lower() == "rock" and enemy_choice.lower() == "rock":
+    if player_choice.lower() == enemy_choice.lower():
         print(f"Your enemy chose {enemy_choice}")
         print("Its a draw!")
     if player_choice.lower() == "rock" and enemy_choice.lower() == "paper":
@@ -45,9 +46,6 @@ while game_start == 1:
         print(f"Your enemy chose {enemy_choice}")
         print("You WIN!")
         score = change_score(True,score)
-    if player_choice.lower() == "paper" and enemy_choice.lower() == "paper":
-        print(f"Your enemy chose {enemy_choice}")
-        print("Its a draw!")
     if player_choice.lower() == "paper" and enemy_choice.lower() == "scissors":
         print(f"Your enemy chose {enemy_choice}")
         print("You lose :(")
@@ -60,9 +58,7 @@ while game_start == 1:
         print(f"Your enemy chose {enemy_choice}")
         print("You win!")
         score = change_score(True,score)
-    if player_choice.lower() == "scissors" and enemy_choice.lower() == "scissors":
-        print(f"Your enemy chose {enemy_choice}")
-        print("Its a draw!")
+
 
     #Exception Handling
     if player_choice.lower() != "rock" and player_choice.lower() != "paper" and player_choice.lower() != "scissor":
