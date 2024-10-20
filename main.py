@@ -34,34 +34,36 @@ while game_start == 1:
     if player_choice.lower() == enemy_choice.lower():
         print(f"Your enemy chose {enemy_choice}")
         print("Its a draw!")
-    if player_choice.lower() == "rock" and enemy_choice.lower() == "paper":
-        print(f"Your enemy chose {enemy_choice}")
-        print("The enemy wins :(")
-        score = change_score(False,score)
-    if player_choice.lower() == "rock" and enemy_choice.lower() == "scissors":
-        print(f"Your enemy chose {enemy_choice}")
-        print("You WIN!")
-        score = change_score(True,score)
-    if player_choice.lower() == "paper" and enemy_choice.lower() == "rock":
-        print(f"Your enemy chose {enemy_choice}")
-        print("You WIN!")
-        score = change_score(True,score)
-    if player_choice.lower() == "paper" and enemy_choice.lower() == "scissors":
-        print(f"Your enemy chose {enemy_choice}")
-        print("You lose :(")
-        score = change_score(False,score)
-    if player_choice.lower() == "scissors" and enemy_choice.lower() == "rock":
-        print(f"Your enemy chose {enemy_choice}")
-        print("You lose :(")
-        score = change_score(False,score)
-    if player_choice.lower() == "scissors" and enemy_choice.lower() == "paper":
-        print(f"Your enemy chose {enemy_choice}")
-        print("You win!")
-        score = change_score(True,score)
-
+    if player_choice.lower() == "rock":
+        if enemy_choice.lower() == "paper":
+            print(f"Your enemy chose {enemy_choice}")
+            print("The enemy wins :(")
+            score = change_score(False,score)
+        if enemy_choice.lower() == "scissors":
+            print(f"Your enemy chose {enemy_choice}")
+            print("You WIN!")
+            score = change_score(True,score)
+    if player_choice.lower() == "paper":
+        if enemy_choice.lower() == "rock":
+            print(f"Your enemy chose {enemy_choice}")
+            print("You WIN!")
+            score = change_score(True,score)
+        if enemy_choice.lower() == "scissors":
+            print(f"Your enemy chose {enemy_choice}")
+            print("You lose :(")
+            score = change_score(False,score)
+    if player_choice.lower() == "scissors" or player_choice.lower() == "scissor":
+        if enemy_choice.lower() == "rock":
+            print(f"Your enemy chose {enemy_choice}")
+            print("You lose :(")
+            score = change_score(False,score)
+        if enemy_choice.lower() == "paper":
+            print(f"Your enemy chose {enemy_choice}")
+            print("You win!")
+            score = change_score(True,score)
 
     #Exception Handling
-    if player_choice.lower() != "rock" and player_choice.lower() != "paper" and player_choice.lower() != "scissor":
+    if player_choice.lower() != "rock" and player_choice.lower() != "paper" and player_choice.lower() != "scissors" and player_choice.lower() != "scissor":
         print("Chose either Rock, Paper or Scissor dum dum!")
         continue
 
